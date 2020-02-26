@@ -33,6 +33,7 @@ let config = {
       {  test:/\.js$/,use:['babel-loader'],exclude:/node_modules/},
       {  test:/\.vue$/,use:['vue-loader']},
       {  test:/\.(ttf|eot|svg|woff|woff2|otf)$/, use:['url-loader']  },
+      {   test:/\.(jpg|png|gif)$/, use:['url-loader?limit=4787&name=[hash:8]-[name].[ext]']  },
       
     ]
   },
