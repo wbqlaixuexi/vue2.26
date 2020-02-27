@@ -36,7 +36,7 @@
   padding-top: 40px;
   background-color: #fff;
   overflow-x:hidden;
-
+  padding-bottom:54px;
 }
 
 .v-leave-to{
