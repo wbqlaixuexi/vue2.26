@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class='home'>
     <mt-swipe :auto="4000">
       <mt-swipe-item v-for="(item) in lunboList" :key="item.id">
         <img :src="item.img" alt="" />
@@ -15,15 +15,15 @@
           >
         </li>
         <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
-          <a href="#">
+          <router-link to="/home/share">
             <img src="images/2.jpg" />
-            <div class="mui-media-body">图片分享</div></a
+            <div class="mui-media-body">图片分享</div></router-link
           >
         </li>
         <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
-          <a href="#">
+          <router-link to="/home/goodslist">
             <img src="images/3.jpg" />
-            <div class="mui-media-body">商品购买</div></a
+            <div class="mui-media-body">商品购买</div></router-link
           >
         </li>
         <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
@@ -82,6 +82,7 @@ export default {
 
 <style lang="scss" scoped>
 .mint-swipe {
+
   height: 300px;
   .mint-swipe-item {
     &:nth-child(1) {
@@ -118,4 +119,5 @@ img {
   width: 100px !important;
   height: 60px !important;
 }
+
 </style>

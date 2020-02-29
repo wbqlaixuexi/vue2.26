@@ -47,7 +47,7 @@ export default {
 <style lang="scss">
 .mui-media-body {
   h3 {
-    font-size: 16px;
+    font-size: 12px;
   }
   .time {
     display: flex;

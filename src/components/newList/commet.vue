@@ -2,9 +2,9 @@
   <div class="commet">
     <h2 class="title1">发表评论</h2>
     <hr />
-    <textarea placeholder="请输入评论内容(不可超过60字)" maxlength="60">
+    <textarea placeholder="请输入评论内容(不可超过60字)" maxlength="60"  v-model='msg'>
     </textarea>
-    <mt-button type="primary">发表评论</mt-button>
+    <mt-button type="primary" @click='submitCmt'>发表评论</mt-button>
     <div class="cmtbox">
       <ul class="cmtul">
         <li class="cmtli" v-for='(item,i) in cmtList' :key='item.add_time'>
@@ -23,7 +23,8 @@ export default {
   data() {
     return {
         pageindex : 1,
-        cmtList:[]
+        cmtList:[],
+        msg:''
     }
   },
   props:["id"],
@@ -35,13 +36,28 @@ export default {
           this.$http.get("http://www.liulongbin.top:3005/api/getcomments/" + this.id + '?pageindex=' + this.pageindex ).then((res) => {
               if(res.body.status === 0){
                   this.cmtList = this.cmtList.concat(res.body.message);
-                  console.log(this.cmtList)
+                  // console.log(this.cmtList)
               }
           })
       },
       getmore(){
           this.pageindex += 1;
           this.getcmtList();
+      },
+      submitCmt(){
+        this.$http.post("http://www.liulongbin.top:3005/api/postcomment/"+this.id,{ content:this.msg.trim() }).then((res) => {
+          if(res.body.status == 0){
+              let newCmt = {
+                user_name:'匿名用户',
+                add_time:Date.now(),
+                content: this.msg.trim()
+              }
+              this.cmtList.unshift(newCmt)
+              this.msg = ''
+          }else{
+            Toast("网络错误")
+          }
+        })
       }
   }
 };
