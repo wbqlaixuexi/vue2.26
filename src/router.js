@@ -11,6 +11,7 @@ import Goodslist from './components/goodslist/goodlist.vue'
 import goods from './components/goodslist/goods.vue'
 import goodsDesc from './components/goodslist/goodsDesc.vue'
 import goodscmt from './components/goodslist/goodscmt.vue'
+
 let router = new VueRouter({
   routes: [
     { path: "/", redirect: "/home" },
@@ -55,7 +56,7 @@ let router = new VueRouter({
       path:'/home/goodscmt/:id',
       component: goodscmt,
       name:'goodscmt'
-    }
+    },
   ],
   linkActiveClass: "mui-active" //覆盖默认的类，router-link-active
 });

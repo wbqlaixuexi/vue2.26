@@ -132,6 +132,14 @@ export default {
     },
     addShopCar(){
       this.ballFlag = true;
+      let shopList = {
+        id:this.id,
+        count:this.count,
+        price:this.goodsInfo.sell_price,
+        selected:true
+      }
+      this.$store.commit('addToShopCar',shopList);
+      window.localStorage.setItem("car",JSON.stringify(this.$store.state.car))
     },
     beforeEnter(el){
       el.style.transform = 'translate(0,0)'

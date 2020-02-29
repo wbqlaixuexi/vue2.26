@@ -20,7 +20,8 @@ let config = {
     new webpack.HotModuleReplacementPlugin(), //new 一个热更新的 模块对象，
     new htmlWebpackPlugin({
       template: path.join(__dirname, './src/index.html'),
-      filename:'index.html'
+      filename:'index.html',
+      publicPath: './'
     }),
     new VueLoaderPlugin()
   ],
@@ -33,7 +34,13 @@ let config = {
       {  test:/\.js$/,use:['babel-loader'],exclude:/node_modules/},
       {  test:/\.vue$/,use:['vue-loader']},
       {  test:/\.(ttf|eot|svg|woff|woff2|otf)$/, use:['url-loader']  },
-      {   test:/\.(jpg|png|gif)$/, use:['url-loader?limit=4787&name=[hash:8]-[name].[ext]']  },
+      {   test:/\.(jpg|png|gif)$/, use:[{
+        loader:'file-loader?limit=4787&name=[hash:8]-[name].[ext]',
+        options:{
+        name:'[name].[ext]',
+        publicPath:'./images',
+        output:'images'
+      }}]  },
       
     ]
   },
