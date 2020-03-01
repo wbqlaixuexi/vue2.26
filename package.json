@@ -38,7 +38,8 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "webpack-dev-server --open --port 3000 --contentBase src --hot --host 192.168.43.23"
+    "dev": "webpack-dev-server --open --port 3000 --contentBase src --hot --host localhost",
+    "build": "webpack --env production --config webpack.config.js"
   },
   "keywords": [],
   "author": "",

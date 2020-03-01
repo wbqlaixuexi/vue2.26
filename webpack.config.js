@@ -1,57 +1,66 @@
-const path = require('path')
-const webpack = require('webpack')
-const htmlWebpackPlugin = require('html-webpack-plugin')
-const VueLoaderPlugin = require("vue-loader/lib/plugin")
+const path = require("path");
+const webpack = require("webpack");
+const htmlWebpackPlugin = require("html-webpack-plugin");
+const VueLoaderPlugin = require("vue-loader/lib/plugin");
 
 let config = {
-  mode: 'none',
-  entry: path.join(__dirname, './src/main'),//入口，表示要使用 webpack 打包哪个文件
-  output:{//输出文件相关的配置
-    path:path.join(__dirname,'./dist'),
-    filename:'bundle.js'//指定输出文件的名称
+  mode: "none",
+  entry: path.join(__dirname, "./src/main"), //入口，表示要使用 webpack 打包哪个文件
+  output: {
+    //输出文件相关的配置
+    path: path.join(__dirname, "./dist"),
+    filename: "bundle.js" //指定输出文件的名称
   },
-  devServer:{ // 这是配置 dev-server 命令参数的第二种方式，相对来说，麻烦一些
+  devServer: {
+    // 这是配置 dev-server 命令参数的第二种方式，相对来说，麻烦一些
     open: true, //自动打开
     port: 3000, //设置启动时候的运行端口
-    contentBase: 'src', // 指定托管的根目录
+    contentBase: "src", // 指定托管的根目录
     hot: true //启用热更新
   },
-  plugins:[
+  plugins: [
     new webpack.HotModuleReplacementPlugin(), //new 一个热更新的 模块对象，
     new htmlWebpackPlugin({
-      template: path.join(__dirname, './src/index.html'),
-      filename:'index.html',
-      publicPath: './'
+      template: path.join(__dirname, "./src/index.html"),
+      filename: "index.html",
+      publicPath: "./"
     }),
     new VueLoaderPlugin()
   ],
-  module:{//这个节点用于 配置 所有的 第三方 加载器
-    rules:[ //所有第三方模块的 匹配规则
-      {  test:/\.css$/, use:['style-loader', 'css-loader'] },
-      {  test:/.less$/,use:['style-loader', 'css-loader','less-loader']},
+  module: {
+    //这个节点用于 配置 所有的 第三方 加载器
+    rules: [
+      //所有第三方模块的 匹配规则
+      { test: /\.css$/, use: ["style-loader", "css-loader"] },
+      { test: /.less$/, use: ["style-loader", "css-loader", "less-loader"] },
       //less处理规则
-      {  test:/.scss$/,use:['style-loader', 'css-loader','sass-loader']},
-      {  test:/\.js$/,use:['babel-loader'],exclude:/node_modules/},
-      {  test:/\.vue$/,use:['vue-loader']},
-      {  test:/\.(ttf|eot|svg|woff|woff2|otf)$/, use:['url-loader']  },
-      {   test:/\.(jpg|png|gif)$/, use:[{
-        loader:'file-loader?limit=4787&name=[hash:8]-[name].[ext]',
-        options:{
-        name:'[name].[ext]',
-        publicPath:'./images',
-        output:'images'
-      }}]  },
-      
+      { test: /.scss$/, use: ["style-loader", "css-loader", "sass-loader"] },
+      { test: /\.js$/, use: ["babel-loader"], exclude: /node_modules/ },
+      { test: /\.vue$/, use: ["vue-loader"] },
+      { test: /\.(ttf|eot|svg|woff|woff2|otf)$/, use: ["url-loader"] },
+      {
+        test: /\.(jpg|png|gif)$/,
+        use: [
+          {
+            loader: "url-loader?limit=4787",
+            options: {
+              name: "[hash:8]-[name].[ext]",
+              outputPath: "images/",
+
+            }
+          }
+        ]
+      }
     ]
   },
-  resolve:{
-      alias:{
-        'vue$':"vue/dist/vue.js"
-      }
+  resolve: {
+    alias: {
+      vue$: "vue/dist/vue.js"
+    }
   }
-}
+};
 
-module.exports = config
+module.exports = config;
 //当我们在控制台,直接输入 webpack 命令执行的时候，webpack做了一下几步:
 // 1. 首先，webpack发现，我们并没有通过命令的形式，指定入口和出口
 // 2. webpack就回去 项目 的 根目录 下，查找 webpack.config.js 的配置文件

@@ -10,37 +10,37 @@
         <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
           <router-link to="/home/newlist">
             <!-- <div style='width:60px; height:60px' class='tianchong'></div> -->
-            <img src="http://192.168.43.23:3000/images/1.jpg" />
+            <img src="/images/1.jpg" />
             <div class="mui-media-body">新闻资讯</div></router-link
           >
         </li>
         <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
           <router-link to="/home/share">
-            <img src="http://192.168.43.23:3000/images/2.jpg" />
+            <img src="/images/2.jpg" />
             <div class="mui-media-body">图片分享</div></router-link
           >
         </li>
         <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
           <router-link to="/home/goodslist">
-            <img src="http://192.168.43.23:3000/images/3.jpg" />
+            <img src="/images/3.jpg" />
             <div class="mui-media-body">商品购买</div></router-link
           >
         </li>
         <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
           <a href="#">
-            <img src="http://192.168.43.23:3000/images/4.jpg" />
+            <img src="/images/4.jpg" />
             <div class="mui-media-body">留言反馈</div></a
           >
         </li>
         <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
           <a href="#">
-            <img src="http://192.168.43.23:3000/images/5.jpg" />
+            <img src="/images/5.jpg" />
             <div class="mui-media-body">视频专区</div></a
           >
         </li>
         <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
           <a href="#">
-            <img src="http://192.168.43.23:3000/images/6.jpg" />
+            <img src="/images/6.jpg" />
             <div class="mui-media-body">联系我们</div></a
           >
         </li>
@@ -55,13 +55,12 @@ export default {
   data() {
     return {
       lunboList: [],
-      img: require("../../images/1.jpg")
     };
   },
   methods: {
     getLunbo() {
       this.$http
-        .get("http://192.168.43.23:3000/js/data.json")
+        .get("/js/data.json")
         .then(res => {
           console.log(res)
           if (res.status == 200) {
