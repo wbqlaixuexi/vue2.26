@@ -4,3 +4,6 @@
 # 完成首页APP组件
 1.完成header 头部区域，使用的是 mint-ui 中的header 组件
 2.制作底部的tabbar
+
+#项目已上线
+#地址 http://120.27.19.84
