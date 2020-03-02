@@ -31,8 +31,8 @@ Vue.use(NavBar)
 Vue.use(Checkbox)
 Vue.use(Lazyload, {
   preLoad: 1,
-  error: "./images/10.jpg",
-  loading: "./images/8.jpg",
+  error: "./images/11.jpg",
+  loading: "./images/11.jpg",
   attempt: 1
 });
 import "vant/lib/index.css";

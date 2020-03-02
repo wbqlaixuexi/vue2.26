@@ -26,9 +26,9 @@ export default {
       id: this.$route.params.id,
       photoInfo: [],
       images: [
-        "../../images/8.jpg",
-        "../../images/9.jpg",
-        "../../images/10.jpg"
+        "../../images/11.jpg",
+        "../../images/12.jpg",
+        "../../images/13.jpg"
       ],
       show: false,
       index: 0,

@@ -1,14 +1,14 @@
 <template>
   <div>
     <van-tabs color='skyblue'  @click='handleClick($event)' >
-      <van-tab v-for="(item,index) in topList" :title="item.title" :key='item.id' :name='item.id'> 
+      <van-tab v-for="(item) in topList" :title="item.title" :key='item.id' :name='item.id'> 
       </van-tab>
     </van-tabs>
 
     <div class='photoBox'>
         <ul class='photoList'>
             <router-link class='' v-for='item in photoList' :key = "item.id" :to="'/home/photoInfo/' + item.id" tag='li'> 
-                <img :src="item.img_url" alt="" v-lazy='item.img_url'>
+                <img :src="item.img_url" alt="" v-lazy='item.img_url' >
                 <div class="info">
                     <h3 class='info-title'>{{item.title}}</h3>
                     <span class='info-body'>{{item.zhaiyao}}</span>

@@ -60,7 +60,7 @@ export default {
   methods: {
     getLunbo() {
       this.$http
-        .get("/js/data.json")
+        .get("http://localhost:3000/js/data.json")
         .then(res => {
           console.log(res)
           if (res.status == 200) {

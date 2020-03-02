@@ -63,7 +63,7 @@
 /******/
 /******/ 	var hotApplyOnUpdate = true;
 /******/ 	// eslint-disable-next-line no-unused-vars
-/******/ 	var hotCurrentHash = "059b6282e2a1d7e12db6";
+/******/ 	var hotCurrentHash = "4ff4c3b478930539d0fc";
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule;
@@ -879,8 +879,8 @@ _vue2.default.use(_vant.NavBar);
 _vue2.default.use(_vant.Checkbox);
 _vue2.default.use(_vant.Lazyload, {
   preLoad: 1,
-  error: "./images/10.jpg",
-  loading: "./images/8.jpg",
+  error: "./images/11.jpg",
+  loading: "./images/11.jpg",
   attempt: 1
 });
 
@@ -19316,7 +19316,7 @@ exports.default = {
     getLunbo: function getLunbo() {
       var _this = this;
 
-      this.$http.get("/js/data.json").then(function (res) {
+      this.$http.get("http://localhost:3000/js/data.json").then(function (res) {
         console.log(res);
         if (res.status == 200) {
 
@@ -22071,7 +22071,7 @@ var render = function() {
             }
           }
         },
-        _vm._l(_vm.topList, function(item, index) {
+        _vm._l(_vm.topList, function(item) {
           return _c("van-tab", {
             key: item.id,
             attrs: { title: item.title, name: item.id }
@@ -22477,7 +22477,7 @@ exports.default = {
     return {
       id: this.$route.params.id,
       photoInfo: [],
-      images: ["../../images/8.jpg", "../../images/9.jpg", "../../images/10.jpg"],
+      images: ["../../images/11.jpg", "../../images/12.jpg", "../../images/13.jpg"],
       show: false,
       index: 0,
       suolue: []
